@@ -10,7 +10,7 @@ Agenda:
 
 * Discuss the purpose of the project
 * Conduct research and brainstorming sessions
-* Create rough sketches or wireframes to illustrate potential site layout and structure
+* Create rough sketches to illustrate potential site layout and structure
 * Research for competitors and industry trends for inspiration
 * Decide on visual identity and mood board
 * Determine functions to include or not
