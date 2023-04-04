@@ -26,17 +26,19 @@ export default {
     {
       title: "Image",
       name: "image",
-      type: "image",
+      type: "array",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+        },
+      ],
       options: {
-        hotspot: true,
+        layout: "grid",
+        multiple: true,
       },
     },
-    {
-      title: "Images",
-      name: "images",
-      type: "array",
-      of: [{ type: "image", options: { hotspot: true } }],
-    },
+
     {
       title: "Description",
       name: "description",
@@ -59,14 +61,21 @@ export default {
       type: "string",
     },
     {
-      title: "Model",
-      name: "model",
+      title: "Model Year",
+      name: "modelYear",
       type: "string",
     },
     {
       title: "Fuel",
       name: "fuel",
       type: "string",
+      options: {
+        list: [
+          { title: "Petrol", value: "petrol" },
+          { title: "Diesel", value: "diesel" },
+          { title: "Electric", value: "electric" },
+        ],
+      },
     },
     {
       title: "Km Stand",
@@ -74,19 +83,34 @@ export default {
       type: "string",
     },
     {
-      title: "Power",
-      name: "power",
-      type: "string",
+      title: "Engine Power",
+      name: "enginePower",
+      type: "number",
+
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Wheel drive",
       name: "wheeldrive",
       type: "string",
+      options: {
+        list: [
+          { title: "Front Wheel Drive", value: "frontWheelDrive" },
+          { title: "Back Wheel Drive", value: "backWheelDrive" },
+          { title: "All Wheel Drive", value: "allWheelDrive" },
+        ],
+      },
     },
     {
       title: "Gearbox",
       name: "gearbox",
       type: "string",
+      options: {
+        list: [
+          { title: "Automatic", value: "automatic" },
+          { title: "Manual", value: "manual" },
+        ],
+      },
     },
     {
       title: "Body Condition",
@@ -99,16 +123,19 @@ export default {
       type: "string",
     },
     {
-      title: "Category",
-      name: "category",
-      type: "reference",
-      to: [{ type: "category" }],
-    },
-    {
       title: "Equipment",
       name: "equipment",
       type: "array",
-      of: [{ type: "reference", to: [{ type: "equipment" }] }],
+      options: {
+        collapsible: true,
+        collapsed: true,
+      },
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "equipment" }],
+        },
+      ],
     },
   ],
   preview: {
@@ -122,7 +149,7 @@ export default {
       return {
         title: name,
         subtitle: `${price.toFixed(2)} kr`,
-        media: image,
+        media: image[0],
       };
     },
   },
