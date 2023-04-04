@@ -16,11 +16,5 @@ export default {
         source: "name",
       },
     },
-    {
-      title: "Tags",
-      name: "tags",
-      type: "array",
-      of: [{ type: "string" }],
-    },
   ],
 };
