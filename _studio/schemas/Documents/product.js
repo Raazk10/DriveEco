@@ -45,8 +45,8 @@ export default {
       type: "text",
     },
     {
-      title: "Warrenty",
-      name: "warrenty",
+      title: "Warranty",
+      name: "warranty",
       type: "string",
     },
 
@@ -71,9 +71,9 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "Petrol", value: "petrol" },
+          { title: "Bensin", value: "bensin" },
           { title: "Diesel", value: "diesel" },
-          { title: "Electric", value: "electric" },
+          { title: "Elektrisk", value: "elektrisk" },
         ],
       },
     },
@@ -95,9 +95,9 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "Front Wheel Drive", value: "frontWheelDrive" },
-          { title: "Back Wheel Drive", value: "backWheelDrive" },
-          { title: "All Wheel Drive", value: "allWheelDrive" },
+          { title: "Forhjulsdrift", value: "forhjulsdrift" },
+          { title: "Bakhjulsdrift", value: "bakhjulsdrift" },
+          { title: "Firehjulsdrift", value: "firehjulsdrift" },
         ],
       },
     },
@@ -107,8 +107,8 @@ export default {
       type: "string",
       options: {
         list: [
-          { title: "Automatic", value: "automatic" },
-          { title: "Manual", value: "manual" },
+          { title: "Automatisk", value: "automatisk" },
+          { title: "Manuell", value: "manuell" },
         ],
       },
     },
@@ -116,11 +116,27 @@ export default {
       title: "Body Condition",
       name: "bodyCondition",
       type: "string",
+      options: {
+        list: [
+          { title: "Utmerket", value: "utmerket" },
+          { title: "God", value: "god" },
+          { title: "Akseptabel", value: "akseptabel" },
+          { title: "Dårlig", value: "dårlig" },
+        ],
+      },
     },
     {
       title: "Mechanical Condition",
       name: "mechanicalCondition",
       type: "string",
+      options: {
+        list: [
+          { title: "Utmerket", value: "utmerket" },
+          { title: "God", value: "god" },
+          { title: "Akseptabel", value: "akseptabel" },
+          { title: "Dårlig", value: "dårlig" },
+        ],
+      },
     },
     {
       title: "Equipment",
