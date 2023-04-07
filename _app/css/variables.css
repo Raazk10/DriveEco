@@ -1,0 +1,29 @@
+:root {
+	--background-color: #F0F8FF; 
+	--primary-color: #00204A;
+	--secondary-color: #005792;
+	--tertiary-color: #448EF6;
+	--Tertiary-color-2: #FDB44B;
+	--Tertiary-color-3: #5CBCE6;
+	--body-text-color: #000000;
+	--text-milage-color: #9B9B9B;
+ }
+
+ :root {
+
+	/* Feel free tp pick any font you like */
+	--Primary-font:'Source Sans Pro'; /*We usse this font practically everywhere only in different variations*/
+	--body-text-font: 'TBD'; 
+	--price-font: 'Source Sans Pro';
+ }
+
+ :root {
+	--border-radius: 5px;
+	--secondary-border-radius: 10px;
+	--padding: 20px;
+ }
+
+
+ *:focus {
+	outline: 3px solid blue;
+ }
