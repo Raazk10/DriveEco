@@ -38,6 +38,17 @@ export default {
         multiple: true,
       },
     },
+    {
+      title: "Icon",
+      name: "icon",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "icon" }],
+        },
+      ],
+    },
 
     {
       title: "Description",
