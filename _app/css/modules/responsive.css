@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: repeat(12, [col-start] 1fr);
 	gap: 10px;
-	background-color: black;
+	background-color: var(--background-color);
 
 }
 
@@ -21,7 +21,7 @@
 
 	.main {
 		grid-column: col-start 4 / span 9;
-		background-color: beige;
+
 		padding: 10px;
 	}
 
@@ -35,8 +35,9 @@
 
 	.main-footer {
 		grid-column: col-start / span 12;
-		background-color: aqua;
+		background-color: var(--secondary-color);
 		padding: 10px;
+		color: var(--background-color);
 	}
 }
 
