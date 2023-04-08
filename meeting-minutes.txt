@@ -37,4 +37,41 @@ Darin and Raj will work on the project individually and will provide updates on 
 
 Adjournment:
 
-The meeting was adjourned at approximatly 12.00 CET
+The meeting was adjourned at approximatly 11.00 CET.
+
+
+Meeting Minutes
+Sprint 2 Meeting:
+
+Minutes of the Online Car Catalogue Project kjørr.no (Sprint 2) Meeting held on 07.04.2023 at 14.00 CET at Espresso House Stortorver in Oslo.
+
+Attendees:
+Darin, Raj
+
+Agenda:
+
+Discuss progress from the first sprint meeting
+Assign tasks for the main and details pages
+Review progress and provide updates
+Discuss any roadblocks or issues encountered
+Next steps
+
+Discussion:
+
+The attendees discussed the progress made from the first sprint meeting. Darin completed the design and the moodboard for the project and the Figma prototype is done. Raj finished building the database in Sanity.
+Tasks were assigned for the main and details pages. Raj will be responsible for the main page while Darin has responsibility for the details page.
+The attendees reviewed the progress made and provided updates on their respective tasks.
+Any roadblocks or issues encountered were discussed and addressed.
+Next steps were discussed and agreed upon.
+Action items:
+
+Raj will continue working on the main page and provide updates on progress.
+Darin will continue working on the details page and provide updates on progress.
+Both attendees will continue to communicate and collaborate effectively to ensure the project stays on track.
+Next steps:
+
+The attendees will work on their respective tasks and provide updates on progress during the next sprint meeting.
+
+Adjournment:
+
+The meeting was adjourned at approximately 12.00 CET.
