@@ -5,6 +5,7 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 250px;
+
 }
 
 .main-header::before {
@@ -24,4 +25,59 @@
 	width: 200px;
 	height: 100px;
 	z-index: 2;
+}
+
+/*Hero section*/
+
+.hero {
+	margin-top: -40px;
+	padding: 40px 10px;
+	background-color: var(--herosection-color);
+	margin-bottom: var(--margin);
+
+}
+
+.hero__content {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: var(--margin);
+
+}
+
+.hero__item {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	flex: 1;
+}
+
+.hero__item-inner {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.hero__icon {
+	width: 24px;
+	height: 24px;
+}
+
+.hero__title {
+	font-size: 1.3rem;
+}
+
+.hero__page {
+	font-size: 0.7rem;
+	color: var(--body-text-color);
+	margin-left: 40px;
+
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 767px) {
+	.hero__content {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
