@@ -1,8 +1,83 @@
-.header {
+.main-header {
+	position: relative;
+	background: url('/_app/assets/image/hero.jpg');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 250px;
+
 }
 
-.header__navigation {
+.main-header::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+
 }
 
-.header__navigation--visible {
+.logo {
+	position: relative;
+	width: 200px;
+	height: 100px;
+	z-index: 2;
+}
+
+/*Hero section*/
+
+.hero {
+	margin-top: -40px;
+	padding: 40px 10px;
+	background-color: var(--herosection-color);
+	margin-bottom: var(--margin);
+
+}
+
+.hero__content {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	gap: var(--margin);
+
+}
+
+.hero__item {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	flex: 1;
+}
+
+.hero__item-inner {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.hero__icon {
+	width: 24px;
+	height: 24px;
+}
+
+.hero__title {
+	font-size: 1.3rem;
+}
+
+.hero__page {
+	font-size: 0.7rem;
+	color: var(--body-text-color);
+	margin-left: 40px;
+
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 767px) {
+	.hero__content {
+		flex-direction: column;
+		align-items: flex-start;
+	}
 }
