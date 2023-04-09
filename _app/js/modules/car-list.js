@@ -26,7 +26,7 @@ export default async function CarList() {
 			price,
 			"icons": icon[]->{
 				"iconUrl": icons[].asset->url,
-			
+				name
 			 }
 		  }`;
     carProducts = await sanity.fetch(query);
@@ -88,10 +88,24 @@ export default async function CarList() {
       carCardPrice.textContent = `${carProduct.price} kr`;
       carCardPriceWrapper.appendChild(carCardPrice);
 
+      // Add a new car-card__icons div
+      const carCardIcons = document.createElement("div");
+      carCardIcons.className = "car-card__icons";
+      carCard.appendChild(carCardIcons);
+
+      // Iterate through the icons array and create icon elements
+      for (const icon of carProduct.icons) {
+        const iconElement = createIconElement(icon);
+        carCardIcons.appendChild(iconElement);
+      }
+
       // Create car-card__button button
       const carCardButton = document.createElement("button");
       carCardButton.className = "car-card__button";
       carCardButton.textContent = "Les mer om bilen";
+      carCardButton.addEventListener("click", () => {
+        window.location.href = `/detail-page/index.html?id=${carProduct._id}`;
+      });
       carCard.appendChild(carCardButton);
     }
     return container;
@@ -99,5 +113,32 @@ export default async function CarList() {
   function renderHTML() {
     const container = createProductListContainerDOM();
     carCardContainer.appendChild(container);
+  }
+
+  function createIconElement(icon, value) {
+    const iconDiv = document.createElement("div");
+    iconDiv.className = `car-card__icon car-card__icon--${icon}`;
+
+    const iconImageDiv = document.createElement("div");
+    iconImageDiv.className = "car-card__icon-image";
+    iconDiv.appendChild(iconImageDiv);
+
+    for (const url of icon.iconUrl) {
+      const iconImage = document.createElement("img");
+      iconImage.src = url;
+      iconImage.alt = icon.name;
+      iconImageDiv.appendChild(iconImage);
+    }
+
+    //text content
+    const iconTextDiv = document.createElement("div");
+    iconTextDiv.className = "car-card__icon-text";
+    iconDiv.appendChild(iconTextDiv);
+
+    const iconSpan = document.createElement("span");
+    iconSpan.textContent = value;
+    iconTextDiv.appendChild(iconSpan);
+
+    return iconDiv;
   }
 }
