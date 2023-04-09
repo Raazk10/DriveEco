@@ -93,9 +93,22 @@ export default async function CarList() {
       carCardIcons.className = "car-card__icons";
       carCard.appendChild(carCardIcons);
 
+      // Create icon elements
+      const gearbox = carProduct.gearbox;
+      const fuel = carProduct.fuel;
+      const enginePower = carProduct.enginePower;
+      const wheeldrive = carProduct.wheeldrive;
+
       // Iterate through the icons array and create icon elements
       for (const icon of carProduct.icons) {
-        const iconElement = createIconElement(icon);
+        const iconElement = createIconElement(
+          icon,
+          gearbox,
+          fuel,
+          enginePower,
+          wheeldrive
+        );
+
         carCardIcons.appendChild(iconElement);
       }
 
@@ -115,7 +128,7 @@ export default async function CarList() {
     carCardContainer.appendChild(container);
   }
 
-  function createIconElement(icon, value) {
+  function createIconElement(icon, gearbox, fuel, enginePower, wheeldrive) {
     const iconDiv = document.createElement("div");
     iconDiv.className = `car-card__icon car-card__icon--${icon}`;
 
@@ -130,14 +143,32 @@ export default async function CarList() {
       iconImageDiv.appendChild(iconImage);
     }
 
-    //text content
     const iconTextDiv = document.createElement("div");
     iconTextDiv.className = "car-card__icon-text";
     iconDiv.appendChild(iconTextDiv);
 
     const iconSpan = document.createElement("span");
-    iconSpan.textContent = value;
     iconTextDiv.appendChild(iconSpan);
+
+    const iconInfoDiv = document.createElement("div");
+    iconInfoDiv.className = "car-card__icon-info";
+    iconTextDiv.appendChild(iconInfoDiv);
+
+    const iconGearboxSpan = document.createElement("span");
+    iconGearboxSpan.textContent = gearbox;
+    iconInfoDiv.appendChild(iconGearboxSpan);
+
+    const iconFuelSpan = document.createElement("span");
+    iconFuelSpan.textContent = fuel;
+    iconInfoDiv.appendChild(iconFuelSpan);
+
+    const iconEnginePowerSpan = document.createElement("span");
+    iconEnginePowerSpan.textContent = enginePower;
+    iconInfoDiv.appendChild(iconEnginePowerSpan);
+
+    const iconWheelDriveSpan = document.createElement("span");
+    iconWheelDriveSpan.textContent = wheeldrive;
+    iconInfoDiv.appendChild(iconWheelDriveSpan);
 
     return iconDiv;
   }
