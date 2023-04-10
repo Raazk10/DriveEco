@@ -218,6 +218,11 @@ export default async function CarList() {
 
     const filteredCarProducts = filterCars(carProducts, activeFilters);
     renderHTML(filteredCarProducts);
+    if (filteredCarProducts.length === 1) {
+      carCardContainer.classList.add("single-card");
+    } else {
+      carCardContainer.classList.remove("single-card");
+    }
   }
   for (const filterName in filterCarCard) {
     const checkbox = document.querySelector(`input[name="${filterName}"]`);

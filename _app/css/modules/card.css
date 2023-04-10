@@ -4,6 +4,12 @@
 	gap: 1rem;
 }
 
+.car-card.single-card {
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	max-width: 300px;
+}
+
+
 .car-card {
 	display: flex;
 	flex-direction: column;
