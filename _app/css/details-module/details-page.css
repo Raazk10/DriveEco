@@ -1,0 +1,12 @@
+.wrapper {
+	border: 1px solid #ccc;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	grid-auto-flow: dense;
+	gap: 10px;
+	background-image: repeating-linear-gradient(0deg, transparent, transparent 1px, #ccc 1px, #ccc 2px);
+	outline: 1px solid rgba(0, 0, 0, 0.5); /* add this line to make grid lines visible in developer tools */
+	background-color: red;
+ }
+ 
