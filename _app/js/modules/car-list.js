@@ -1,4 +1,5 @@
 import { sanity } from "../sanity.js";
+import filterCars from "./filterCar.js";
 
 export default async function CarList() {
   let carProducts = [];
@@ -9,7 +10,7 @@ export default async function CarList() {
 
   async function handleCarProduct() {
     await fetchProduct();
-    renderHTML();
+    updateCarList();
   }
 
   async function fetchProduct() {
@@ -18,6 +19,7 @@ export default async function CarList() {
 			"image":image[0].asset->url,
 			modelYear,
 			name,
+      brand,
 			kmstand,
 			gearbox,
 			fuel,
@@ -32,11 +34,12 @@ export default async function CarList() {
     carProducts = await sanity.fetch(query);
     console.log(carProducts);
   }
-  function createProductListContainerDOM() {
+
+  function createProductListContainerDOM(carList) {
     const container = document.createElement("div");
     container.className = "car-card-container";
 
-    for (const carProduct of carProducts) {
+    for (const carProduct of carList) {
       // create car-card div
       const carCard = document.createElement("div");
       carCard.className = "car-card";
@@ -123,8 +126,9 @@ export default async function CarList() {
     }
     return container;
   }
-  function renderHTML() {
-    const container = createProductListContainerDOM();
+  function renderHTML(carList) {
+    const container = createProductListContainerDOM(carList);
+    carCardContainer.innerHTML = "";
     carCardContainer.appendChild(container);
   }
 
@@ -171,5 +175,54 @@ export default async function CarList() {
     iconInfoDiv.appendChild(iconWheelDriveSpan);
 
     return iconDiv;
+  }
+
+  //filter system
+
+  const filterCarCard = {
+    diesel: (car) => car.fuel === "diesel",
+    bensin: (car) => car.fuel === "bensin",
+    elektrisk: (car) => car.fuel === "elektrisk",
+
+    forhjulsdrift: (car) => car.wheeldrive === "forhjulsdrift",
+    bakhjulsdrift: (car) => car.wheeldrive === "bakhjulsdrift",
+    firehjulsdrift: (car) => car.wheeldrive === "firehjulsdrift",
+
+    automatisk: (car) => car.gearbox === "automatisk",
+    manuell: (car) => car.gearbox === "manuell",
+
+    audi: (car) => car.brand === "Audi",
+    bmw: (car) => car.brand === "BMW",
+    ferrari: (car) => car.brand === "Ferrari",
+    ford: (car) => car.brand === "Ford",
+    honda: (car) => car.brand === "Honda",
+    hyundai: (car) => car.brand === "Hyundai",
+    jaguar: (car) => car.brand === "Jaguar",
+    mazda: (car) => car.brand === "Mazda",
+    mercedes: (car) => car.brand === "Mercedes-Benz",
+    skoda: (car) => car.brand === "Skoda",
+    toyota: (car) => car.brand === "Toyota",
+    volkswagen: (car) => car.brand === "Volkswagen",
+  };
+  function updateCarList() {
+    const activeFilters = Object.keys(filterCarCard).reduce(
+      (acc, filterName) => {
+        const checkbox = document.querySelector(`input[name="${filterName}"]`);
+        if (checkbox.checked) {
+          acc[filterName] = filterCarCard[filterName];
+        }
+        return acc;
+      },
+      {}
+    );
+
+    const filteredCarProducts = filterCars(carProducts, activeFilters);
+    renderHTML(filteredCarProducts);
+  }
+  for (const filterName in filterCarCard) {
+    const checkbox = document.querySelector(`input[name="${filterName}"]`);
+    checkbox.addEventListener("change", () => {
+      updateCarList();
+    });
   }
 }
