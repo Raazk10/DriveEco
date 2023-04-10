@@ -1,6 +1,6 @@
 export default function Collapsible(collapsibleContainerNode) {
   /* data */
-  let isCollapsed = true;
+  let isCollapsed = false;
 
   /* query selectors */
   const toggleButton = collapsibleContainerNode.querySelector(
@@ -34,4 +34,5 @@ export default function Collapsible(collapsibleContainerNode) {
       contentContainer.classList.add("collapsible__content--visible");
     }
   }
+  renderHTML();
 }
