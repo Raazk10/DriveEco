@@ -30,5 +30,5 @@
 
 
 *:focus {
-	outline: 3px solid blue;
+	outline: 3px solid rgb(10, 10, 25);
 }

@@ -1,0 +1,14 @@
+.collapsible__toggle {
+	text-align: left;
+	width: 100%;
+	font-size: 1rem;
+}
+
+.collapsible__content {
+	/* border: var(--border-size) solid var(--primary); */
+	display: none;
+}
+
+.collapsible__content--visible {
+	display: block;
+}

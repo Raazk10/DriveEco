@@ -28,7 +28,6 @@
 	.sidebar {
 		grid-column: col-start / span 3;
 		grid-row: 2 / auto;
-		background-color: aquamarine;
 		padding: 10px;
 	}
 

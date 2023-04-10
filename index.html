@@ -47,65 +47,139 @@
 
 			<div class="car-card">
 
-				<!-- 	<div class="car-card">
 
-					<div class="car-card__image-wrapper">
-						<img class="car-card__image" src="./_app/assets/image/hero.jpg" alt="Car Image">
-						<p class="car-card__year">2018</p>
-					</div>
-					<div class="car-card__info">
-
-						<h3 class="car-card__title">Audi e-tron</h3>
-						<div class="car-card__price-wrapper">
-							<h3 class="car-card__label">Price</h3>
-							<p class="car-card__price">15000 kr</p>
-						</div>
-
-						<div class="car-card__icons">
-							<div class="car-card__icon car-card__icon--gearbox">
-								<div class="car-card__icon-image">
-									<img src="./_app/assets/Icon/gearbox-icon.png" alt="Gearbox">
-								</div>
-								<div class="car-card__icon-text">
-									<span>Automatic</span>
-								</div>
-							</div>
-							<div class="car-card__icon car-card__icon--fuel">
-								<div class="car-card__icon-image">
-
-									<img src="./_app/assets/Icon/fuel-icon.png" alt="Fuel">
-								</div>
-								<div class="car-card__icon-text">
-
-									<span>Petrol</span>
-								</div>
-							</div>
-							<div class="car-card__icon car-card__icon--engine-power">
-								<div class="car-card__icon-image">
-
-									<img src="./_app/assets/Icon/engine-icon.png" alt="Engine Power">
-								</div>
-								<div class="car-card__icon-text">
-
-									<span>150 HP</span>
-								</div>
-							</div>
-							<div class="car-card__icon car-card__icon--wheel-drive">
-								<div class="car-card__icon-image">
-									<img src="./_app/assets/Icon/wheeldrive-icon.png" alt="Wheel Drive">
-								</div>
-								<div class="car-card__icon-text">
-
-									<span>FWD</span>
-								</div>
-							</div>
-						</div>
-						<button class="car-card__button">Les mer om bilen</button>
-					</div>
-				</div> -->
 			</div>
 		</main>
-		<aside class="sidebar">Sidebar</aside>
+		<aside class="sidebar">
+
+			<section class="collapsible">
+				<button class="collapsible__toggle">Make</button>
+				<div class="collapsible__content">
+					<fieldset class="carmake">
+						<div>
+							<input type="checkbox" id="audi" name="audi">
+							<label for="audi">Audi</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="bmw" name="bmw">
+							<label for="bmw">BMW</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="ferrari" name="ferrari">
+							<label for="ferrari">Ferrari </label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="ford" name="ford">
+							<label for="ford">Ford</label>
+						</div>
+						<div>
+							<input type="checkbox" id="honda" name="honda">
+							<label for="honda">Honda</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="hyundai " name="hyundai ">
+							<label for="hyundai">Hyundai </label>
+						</div>
+						<div>
+							<input type="checkbox" id="jaguar" name="jaguar">
+							<label for="jaguar">Jaguar</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="mazda" name="mazda">
+							<label for="mazda">Mazda</label>
+						</div>
+						<div>
+							<input type="checkbox" id="mercedes" name="mercedes">
+							<label for="mercedes">Mercedes</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="skoda" name="skoda">
+							<label for="skoda">Skoda</label>
+						</div>
+						<div>
+							<input type="checkbox" id="toyota" name="toyota">
+							<label for="toyota">Toyota</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="volkswagen" name="volkswagen">
+							<label for="volkswagen">Volkswagen</label>
+						</div>
+					</fieldset>
+				</div>
+			</section>
+
+			<section class="collapsible">
+				<button class="collapsible__toggle">Girkasse</button>
+				<div class="collapsible__content">
+					<fieldset class="transmission">
+
+						<div>
+							<input type="checkbox" id="automatisk" name="automatisk">
+							<label for="automatisk">Automatisk</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="manuell" name="manuell">
+							<label for="manuell">Manuell</label>
+						</div>
+					</fieldset>
+				</div>
+			</section>
+
+			<section class="collapsible">
+				<button class="collapsible__toggle">Drivstoff</button>
+				<div class="collapsible__content">
+					<fieldset class="fuel">
+
+						<div>
+							<input type="checkbox" id="diesel" name="diesel">
+							<label for="diesel">Diesel</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="bensin" name="bensin">
+							<label for="bensin">Bensin</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="elektrisk" name="elektrisk">
+							<label for="elektrisk">Elektrisk</label>
+						</div>
+					</fieldset>
+				</div>
+			</section>
+
+			<section class="collapsible">
+				<button class="collapsible__toggle">Hjuldrift</button>
+				<div class="collapsible__content">
+					<fieldset class="wheel-drive">
+
+						<div>
+							<input type="checkbox" id="forhjulsdrift" name="forhjulsdrift">
+							<label for="forhjulsdrift">Forhjulsdrift</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="bakhjulsdrift" name="bakhjulsdrift">
+							<label for="bakhjulsdrift">Bakhjulsdrift</label>
+						</div>
+
+						<div>
+							<input type="checkbox" id="firehjulsdrift" name="firehjulsdrift">
+							<label for="firehjulsdrift">Firehjulsdrift</label>
+						</div>
+					</fieldset>
+				</div>
+			</section>
+
+		</aside>
 		<footer class="main-footer">
 			<p class="main-footer__text">Kjørr</p>
 		</footer>

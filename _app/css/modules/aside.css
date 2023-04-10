@@ -1,0 +1,14 @@
+.sidebar {}
+
+.carmake,
+.transmission,
+.fuel,
+.wheel-drive,
+.car-price {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	font-size: 1rem;
+	padding: 10px;
+	margin-bottom: 10px;
+}
