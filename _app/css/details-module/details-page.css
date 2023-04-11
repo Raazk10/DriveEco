@@ -1,10 +1,10 @@
 .wrapper {
-	border: 1px solid #e40d0d;
 	display: grid;
-	grid-template-columns: repeat(12, 1fr);
-	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
 	grid-auto-flow: dense;
 	gap: 10px;
+	border: 1px solid #e40d0d;
 }
 
 .site-header {
@@ -36,3 +36,9 @@ nav ul li a {
 	color: white;
 	text-decoration: none;
 }
+
+.car__images img {
+	width: 100%; /* Set the width to 100% of the parent container */
+	max-width: 800px; /* Limit the maximum width of the image */
+	height: auto; /* Maintain aspect ratio */
+ }
