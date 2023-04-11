@@ -1,99 +1,63 @@
-import { sanity } from "../sanity.js";
+import fetchProduct from "./fetchProduct.js";
+import { createElementWithClass } from "../util/createElement.js";
 import filterCars from "./filterCar.js";
+import {
+  createCarCard,
+  createCarCardImageWrapper,
+  createCarCardYear,
+  createCarCardImage,
+  createCarCardInfo,
+  createCarCardTitle,
+  createCarCardPriceWrapper,
+  createCarCardLabel,
+  createCarCardPrice,
+  createCarCardIcons,
+  createCarCardButton,
+} from "./carCardElements.js";
 
 export default async function CarList() {
   let carProducts = [];
-  // create car card Container
   const carCardContainer = document.querySelector(".car-card");
-
   handleCarProduct();
 
   async function handleCarProduct() {
-    await fetchProduct();
+    carProducts = await fetchProduct();
     updateCarList();
   }
 
-  async function fetchProduct() {
-    const query = `*[_type=='product']{
-			_id,
-			"image":image[0].asset->url,
-			modelYear,
-			name,
-      brand,
-			kmstand,
-			gearbox,
-			fuel,
-			enginePower,
-			wheeldrive,
-			price,
-			"icons": icon[]->{
-				"iconUrl": icons[].asset->url,
-				name
-			 }
-		  }`;
-    carProducts = await sanity.fetch(query);
-    console.log(carProducts);
-  }
-
   function createProductListContainerDOM(carList) {
-    const container = document.createElement("div");
-    container.className = "car-card-container";
+    const container = createElementWithClass("div", "car-card-container");
 
     for (const carProduct of carList) {
-      // create car-card div
-      const carCard = document.createElement("div");
-      carCard.className = "car-card";
+      const carCard = createCarCard();
       container.appendChild(carCard);
 
-      // Create car-card__image-wrapper div
-      const carCardImageWrapper = document.createElement("div");
-      carCardImageWrapper.className = "car-card__image-wrapper";
+      const carCardImageWrapper = createCarCardImageWrapper();
       carCard.appendChild(carCardImageWrapper);
 
-      // Create car-card__year p
-      const carCardYear = document.createElement("p");
-      carCardYear.className = "car-card__year";
-      carCardYear.textContent = carProduct.modelYear;
+      const carCardYear = createCarCardYear(carProduct);
       carCardImageWrapper.appendChild(carCardYear);
 
-      // Create car-card__image img
-      const carCardImage = document.createElement("img");
-      carCardImage.className = "car-card__image";
-      carCardImage.src = carProduct.image;
+      const carCardImage = createCarCardImage(carProduct);
       carCardImageWrapper.appendChild(carCardImage);
 
-      // Create car-card__info div
-      const carCardInfo = document.createElement("div");
-      carCardInfo.className = "car-card__info";
+      const carCardInfo = createCarCardInfo();
       carCard.appendChild(carCardInfo);
 
-      // Create car-card__title h3
-      const carCardTitle = document.createElement("h3");
-      carCardTitle.className = "car-card__title";
-      carCardTitle.textContent = carProduct.name;
+      const carCardTitle = createCarCardTitle(carProduct);
       carCardInfo.appendChild(carCardTitle);
 
       //price
-      // Create car-card__price-wrapper div
-      const carCardPriceWrapper = document.createElement("div");
-      carCardPriceWrapper.className = "car-card__price-wrapper";
+      const carCardPriceWrapper = createCarCardPriceWrapper();
       carCard.appendChild(carCardPriceWrapper);
 
-      // Create car-card__label h3
-      const carCardLabel = document.createElement("h3");
-      carCardLabel.className = "car-card__label";
-      carCardLabel.textContent = "Pris";
+      const carCardLabel = createCarCardLabel();
       carCardPriceWrapper.appendChild(carCardLabel);
 
-      // Create car-card__price p
-      const carCardPrice = document.createElement("p");
-      carCardPrice.className = "car-card__price";
-      carCardPrice.textContent = `${carProduct.price} kr`;
+      const carCardPrice = createCarCardPrice(carProduct);
       carCardPriceWrapper.appendChild(carCardPrice);
 
-      // Add a new car-card__icons div
-      const carCardIcons = document.createElement("div");
-      carCardIcons.className = "car-card__icons";
+      const carCardIcons = createCarCardIcons();
       carCard.appendChild(carCardIcons);
 
       // Create icon elements
@@ -114,18 +78,13 @@ export default async function CarList() {
 
         carCardIcons.appendChild(iconElement);
       }
-
       // Create car-card__button button
-      const carCardButton = document.createElement("button");
-      carCardButton.className = "car-card__button";
-      carCardButton.textContent = "Les mer om bilen";
-      carCardButton.addEventListener("click", () => {
-        window.location.href = `/detail-page/index.html?id=${carProduct._id}`;
-      });
+      const carCardButton = createCarCardButton(carProduct);
       carCard.appendChild(carCardButton);
     }
     return container;
   }
+
   function renderHTML(carList) {
     const container = createProductListContainerDOM(carList);
     carCardContainer.innerHTML = "";
@@ -179,7 +138,7 @@ export default async function CarList() {
 
   //filter system
 
-  const filterCarCard = {
+  const filterCarData = {
     diesel: (car) => car.fuel === "diesel",
     bensin: (car) => car.fuel === "bensin",
     elektrisk: (car) => car.fuel === "elektrisk",
@@ -204,12 +163,13 @@ export default async function CarList() {
     toyota: (car) => car.brand === "Toyota",
     volkswagen: (car) => car.brand === "Volkswagen",
   };
+
   function updateCarList() {
-    const activeFilters = Object.keys(filterCarCard).reduce(
+    const activeFilters = Object.keys(filterCarData).reduce(
       (acc, filterName) => {
         const checkbox = document.querySelector(`input[name="${filterName}"]`);
         if (checkbox.checked) {
-          acc[filterName] = filterCarCard[filterName];
+          acc[filterName] = filterCarData[filterName];
         }
         return acc;
       },
@@ -218,16 +178,15 @@ export default async function CarList() {
 
     const filteredCarProducts = filterCars(carProducts, activeFilters);
     renderHTML(filteredCarProducts);
+    // fixing card size when there is only one card while filtering
     if (filteredCarProducts.length === 1) {
       carCardContainer.classList.add("single-card");
     } else {
       carCardContainer.classList.remove("single-card");
     }
   }
-  for (const filterName in filterCarCard) {
+  for (const filterName in filterCarData) {
     const checkbox = document.querySelector(`input[name="${filterName}"]`);
-    checkbox.addEventListener("change", () => {
-      updateCarList();
-    });
+    checkbox.addEventListener("change", updateCarList);
   }
 }
