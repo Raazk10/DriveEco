@@ -1,4 +1,5 @@
 import { sanity } from "../sanity.js";
+import Slideshow from "./slideshow.js";
 
 const searchParams = new URLSearchParams(window.location.search);
 const id = searchParams.get("id");
@@ -28,17 +29,26 @@ async function fetchCarDetails() {
     price,
     description,
     "images": image[].asset->url,
+   "icons": icon[]->{
+			  "iconUrl": icons[].asset->url,
+			  name
+		}
   }`;
   const carDetails = await sanity.fetch(query);
 
   const carImages = document.querySelector(".car__images");
 
+   // Create images and append them to carImages
   carDetails[0].images.forEach((imageUrl) => {
     const img = document.createElement("img");
     img.src = imageUrl;
     img.alt = `${carDetails[0].name} image`;
+    img.className = "car__image";
     carImages.appendChild(img);
   });
+
+  Slideshow(".car__image");
+  
 
   const carTitle = document.querySelector(".car__title");
   const carModelYear = document.querySelector(".car__model-year");
