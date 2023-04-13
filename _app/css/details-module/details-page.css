@@ -1,13 +1,25 @@
+section {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .wrapper {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto;
 	grid-auto-flow: dense;
 	gap: 10px;
-	border: 1px solid #e40d0d;
-}
+	max-width: 1200px; /* Set a maximum width for your content */
+	margin: 0 auto; /* Center the content horizontally */
+ }
+
 
 .site-header {
+	height: 100px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -17,7 +29,7 @@
 
 .logo img {
 	width: 100%;
-	max-width: 50px;
+	max-width: 100px;
 }
 
 nav {
@@ -32,13 +44,16 @@ nav ul {
 nav ul li a {
 	display: block;
 	margin-right: 20px;
-	font-size: 0.625rem;
+	font-size: 0.925rem;
 	color: white;
 	text-decoration: none;
 }
 
-.car__images img {
-	width: 100%; /* Set the width to 100% of the parent container */
-	max-width: 800px; /* Limit the maximum width of the image */
-	height: auto; /* Maintain aspect ratio */
+.car__description--container {
+	max-width: 900px;
+ }
+
+ .car__titel {
+	/* margin: 40px; */
+	padding: 20px;
  }

@@ -1,70 +1,71 @@
-/* Slideshow container */
 .car__images {
 	position: relative;
-	max-width: 800px;
-	height: 600px;
-	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
  }
 
-/* Hide the images by default */
-.car__image {
-	position: absolute;
-	top: 0;
-	left: 0;
+
+ .car__images img {
+	width: 100%; /* Set the width to 100% of the parent container */
+	max-width: 1000px; /* Limit the maximum width of the image */
+	height: auto; /* Maintain aspect ratio */
+ }
+
+ .car__image {
 	display: none;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-/* Display the first image by default */
-.car__image:first-child {
-	display: block;
-}
-
-/* Slideshow buttons */
-.slideshow-button {
+	max-width: 100%;
+ }
+ 
+ button {
 	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	background-color: transparent;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.6);
 	color: white;
+	padding: 10px;
+	font-size: 18px;
 	border: none;
-	font-size: 1.5rem;
-	padding: 10px 20px;
+	border-radius: 50%;
 	cursor: pointer;
-	z-index: 2;
-}
+ }
+ 
+ button:focus {
+	outline: none;
+ }
+ 
+ button:hover {
+	background-color: rgba(0, 0, 0, 0.8);
+ }
+ 
+ .prev {
+	left: 2%; /* Replace the hardcoded value with a percentage */
+ }
+ 
+ .next {
+	right: 2%; /* Replace the hardcoded value with a percentage */
+ }
 
-.slideshow-prev-button {
-	left: 0;
-}
+ .fa-chevron-right,
+ .fa-chevron-left {
+	font-size: 2.2em; 
+	/* border-radius: 50%;  */
+	padding: 0.1em;
+ }
+ 
+ .fa-chevron-right {
+	margin-left: 10px;
+ }
+ 
+ .fa-chevron-left {
+	margin-right: 10px;
+ } 
 
-.slideshow-next-button {
-	right: 0;
-}
-
-/* Styling for slideshow container */
-.car__images {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-/* Styling for slideshow buttons */
-.slideshow-button {
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 20px;
-  font-size: 2rem;
-}
-
-.slideshow-prev-button {
-  position: absolute;
-  left: 0;
-}
-
-.slideshow-next-button {
-  position: absolute;
-  right: 0;
-}
+ .image-display {
+	position: absolute;
+	bottom: 10px;
+	padding: 10px 20px;
+	z-index: 1;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	font-size: 14px;
+ }
