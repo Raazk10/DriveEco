@@ -49,7 +49,7 @@ async function fetchCarDetails() {
 
   Slideshow(".car__image");
   
-
+  
   const carTitle = document.querySelector(".car__title");
   const carModelYear = document.querySelector(".car__model-year");
   const carBrand = document.querySelector(".car__brand");

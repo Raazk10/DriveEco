@@ -5,12 +5,14 @@ export default function Slideshow(selector, interval = 3000) {
  
 	// Create Prev button
 	const prevButton = document.createElement("button");
-	prevButton.textContent = "Prev";
+	prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+	prevButton.className = "prev";
 	prevButton.addEventListener("click", showPrevSlide);
- 
+
 	// Create Next button
 	const nextButton = document.createElement("button");
-	nextButton.textContent = "Next";
+	nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+	nextButton.className = "next";
 	nextButton.addEventListener("click", showNextSlide);
  
 	// Create Slideshow container and add buttons and image display to it
@@ -47,7 +49,7 @@ export default function Slideshow(selector, interval = 3000) {
 	function updateImageDisplay() {
 	  const imageDisplay = document.querySelector(".image-display");
 	  if (imageDisplay) {
-		 imageDisplay.textContent = `Image ${slideIndex + 1} of ${totalImages}`;
+		 imageDisplay.textContent = `${slideIndex + 1}/${totalImages}`;
 	  }
 	}
  
