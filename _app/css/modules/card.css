@@ -118,10 +118,7 @@
 
 .car-card__icon-image {
 	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	height: 15px;
-	width: 100%;
+	justify-content: space-between;
 }
 
 .car-card__icon-text {
@@ -136,8 +133,7 @@
 .car-card__icon-info {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	width: 100%;
+	padding-top: 5px;
 }
 
 /* Button Styling */
